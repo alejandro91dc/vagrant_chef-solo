@@ -1,0 +1,20 @@
+{
+  "run_list": [
+    "recipe[nodejs]",
+    "recipe[nodejs::npm]",
+    "recipe[nodejs::npm_packages]"
+  ],
+  "nodejs": {
+    "npm_packages": [
+      {"name": "express",
+       "version": "latest"
+      },
+      {"name": "express-generator",
+       "version": "latest"      
+      },
+      {"name": "mongodb",
+       "version": "latest"
+      }
+    ]
+  }
+}

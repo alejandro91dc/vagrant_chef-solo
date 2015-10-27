@@ -108,6 +108,11 @@ nodejs_npm "grunt" do
   json true
   user "random"
 end
+
+nodejs_npm "mongodb" do
+  path "/home/mongodb"
+  json true
+end
 ```
 [Working Examples](test/cookbooks/nodejs_test/recipes/npm.rb)
 
@@ -132,6 +137,11 @@ Or add packages via attributes (which accept the same attributes as the LWRP abo
       "path": "/home/random/grunt",
       "json": true,
       "user": "random"
+    }
+    {
+      "name": "mongodb",
+      "path": "/home/mongodb",
+      "json": "true",
     }
   ]
 }

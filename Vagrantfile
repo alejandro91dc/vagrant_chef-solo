@@ -6,7 +6,12 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty32"
-  config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "nodejs"
-  end
+
+    VAGRANT_JSON = JSON.parse(Pathname(__FILE__).dirname.join('packages.json').read)
+
+    config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = ["cookbooks"]
+    chef.json = VAGRANT_JSON
+    chef.run_list = VAGRANT_JSON.delete('run_list')  
+end
 end

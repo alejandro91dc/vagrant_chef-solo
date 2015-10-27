@@ -26,3 +26,4 @@ when 'source'
 else
   Chef::Log.error('No install method found for npm')
 end
+
