@@ -12,6 +12,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = ["cookbooks"]
     chef.json = VAGRANT_JSON
-    chef.run_list = VAGRANT_JSON.delete('run_list')  
 end
 end
